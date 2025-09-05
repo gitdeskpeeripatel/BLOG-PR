@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+/* navbar */
+.nav-link {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.nav-link:hover {
+  color: #0d6efd;
+  /* bootstrap primary color */
+}
+
+
+/*  Hero Section */
+.card-img {
+  object-fit: cover;
+  height: 300px;
+}
+
+.card-img-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+}
+
+
+.footer .btn-outline-dark {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.footer .form-control {
+  max-width: 250px;
+}
+
+/* Base style for nav links */
+.navbar-nav .nav-link {
+  position: relative;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.3s ease;
+  padding-bottom: 4px;
+}
+
+/* Hover + active underline effect */
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 2px;
+  background: #0d6efd;
+  /* Bootstrap primary color */
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  width: 60%;
+}
+
+/* Active link color */
+.navbar-nav .nav-link.active {
+  color: #0d6efd !important;
+  font-weight: 600;
+}
+
+
+
+.text-gradient {
+  background: linear-gradient(90deg, #007bff, #6610f2);
+  /* -webkit-background-clip: text; */
+  -webkit-text-fill-color: transparent;
+}
+.blog-card .img1 {
+    height: 200px;
+    object-fit: cover;
+  }

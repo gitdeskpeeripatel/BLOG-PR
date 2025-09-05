@@ -1,0 +1,96 @@
+<%- include("../partials/header") %>
+
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <div class="card border-0 rounded-4 overflow-hidden">
+
+        <div class="row g-0">
+
+          <!-- Left Illustration -->
+          <div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-center bg-light"
+            style="background: url('/images/Post-rafiki.png') center/contain no-repeat; min-height: 500px;">
+          </div>
+
+          <!-- Right Form -->
+          <div class="col-lg-6 p-5 bg-white d-flex flex-column justify-content-between">
+            <div>
+              <h2 class="fw-bold mb-2 text-start">CREATE A BLOG</h2>
+              <p class="text-muted text-start mb-4">Share your thoughts with the world!</p>
+
+              <form action="/blog/add" method="POST" enctype="multipart/form-data">
+
+                <!-- Blog Title -->
+                <div class="mb-3">
+                  <label for="title" class="form-label fw-semibold text-dark">Blog Title</label>
+                  <input type="text" name="title" id="title"
+                    class="form-control rounded-3 " placeholder="Enter blog title" required>
+                </div>
+
+                <!-- Blog Content -->
+                <div class="mb-3">
+                  <label for="content" class="form-label fw-semibold text-dark">Blog Content</label>
+                  <textarea name="content" id="content" rows="5"
+                    class="form-control rounded-3 " placeholder="Write your blog here..." required></textarea>
+                </div>
+
+                <!-- Blog Image -->
+                <div class="mb-3">
+                  <label for="image" class="form-label fw-semibold text-dark">Upload Blog Image</label>
+                  <input type="file" name="image" id="image"
+                    class="form-control rounded-3 " accept="image/*">
+                </div>
+
+                <!-- Author Name + Profile Image -->
+                <div class="mb-3">
+                  <label for="authorName" class="form-label fw-semibold text-dark">Your Name</label>
+                  <input type="text" name="authorName" id="authorName"
+                    class="form-control rounded-3 " placeholder="Enter your name">
+                </div>
+                <div class="mb-3">
+                  <label for="authorImage" class="form-label fw-semibold text-dark">Profile Image</label>
+                  <input type="file" name="authorImage" id="authorImage"
+                    class="form-control rounded-3 " accept="image/*">
+                </div>
+
+                <!-- Submit Button -->
+                <div class=" mt-4">
+                  <button type="submit" class="btn btn-primary px-4 py-2 fw-semibold "
+                    style="border-radius: 5px;">
+                    Publish Blog
+                  </button>
+                </div>
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  body {
+    background:#cfe2ff;;
+  }
+  .card {
+    background: #fff;
+  }
+  .form-label {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #333 !important;
+  }
+  .btn-primary {
+    background: #0066ff;
+    border: none;
+  }
+  .btn-primary:hover {
+    background: #0052cc;
+  }
+</style>
+
+<%- include("../partials/footer") %>

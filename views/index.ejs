@@ -1,0 +1,133 @@
+<%- include("partials/header") %>
+
+
+  <section class="py-4 bg-primary-subtle">
+    <div class="container ">
+      <div class="row align-items-center">
+        <!-- Left Content -->
+        <div class="col-lg-9 mb-4 mb-lg-0">
+          <h1 class="fw-bold display-5">Blog</h1>
+          <p class="lead text-muted ">Our latest news, updates, and stories for developers</p>
+        </div>
+
+        <!-- Right Image -->
+        <div class="col-lg-3 text-center">
+          <img src="/images/blog-header_480.png" alt="Blog Illustration" class="img-fluid" style="max-width: 300px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search Input -->
+  <div class="d-flex justify-content-center mb-4 mt-5">
+    <input id="searchInput" type="text" class="form-control w-50 me-2" placeholder="Search blogs here...">
+    <button id="searchBtn" class="btn btn-primary">Search</button>
+  </div>
+
+  <!-- Search Results -->
+  <div id="searchResults" class="mt-4"></div>
+  </div>
+
+  <!-- Latest Blogs -->
+ <div class="container my-5">
+  <div class="row g-4">
+    <% if (blogs && blogs.length > 0) { %>
+      <% blogs.forEach(blog => { %>
+        <div class="col-md-4">
+          <div class="card blog-card h-100 border-0 rounded-4 overflow-hidden" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+
+            <!-- Blog Image -->
+            <% if (blog.image) { %>
+              <img src="<%= blog.image %>" class="card-img-top img1" alt="Blog Image">
+            <% } %>
+
+            <div class="card-body d-flex flex-column text-center">
+              
+              <!-- Title -->
+              <h5 class="fw-bold mb-3"><%= blog.title %></h5>
+
+              <!-- Content -->
+              <p class="text-muted flex-grow-1">
+                <%= blog.content ? blog.content.substring(0, 100) : '' %>...
+              </p>
+
+              <!-- Meta Info -->
+              <div class="d-flex justify-content-center align-items-center gap-2 mb-3">
+                <img src="<%= blog.authorImage || '/images/default-user.png' %>" 
+                     class="rounded-circle" width="35" height="35" alt="User">
+                <div class="text-start">
+                  <small class="fw-semibold"><%= blog.authorName || 'Unknown' %></small><br>
+                  <small class="text-muted"><%= blog.createdAt ? new Date(blog.createdAt).toLocaleDateString() : '' %></small>
+                </div>
+              </div>
+
+              <!-- Tags / Buttons -->
+              <div class="mt-auto">
+                <a href="/blog/<%= blog._id %>" class="btn btn-outline-primary btn-sm rounded-pill px-3">Read More</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p>No blogs yet. <a href="/blog/add">Add one</a></p>
+    <% } %>
+  </div>
+</div>
+
+<!-- <style>
+  .blog-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+</style> -->
+
+
+  <%- include("partials/footer") %>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Search Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const searchBtn = document.getElementById("searchBtn");
+        const searchInput = document.getElementById("searchInput");
+        const searchResults = document.getElementById("searchResults");
+
+        searchBtn.addEventListener("click", async () => {
+          const query = searchInput.value.trim();
+          if (!query) return alert("Please enter a search term!");
+
+          try {
+            const res = await fetch(`/blog/search?query=${encodeURIComponent(query)}`);
+            const data = await res.json();
+
+            if (!data || data.length === 0) {
+              searchResults.innerHTML = `<p class="text-muted">No blogs found.</p>`;
+              return;
+            }
+
+            searchResults.innerHTML = data
+              .map(blog => `
+          <div class="card mb-3 text-start">
+            <div class="card-body">
+              <h5 class="card-title">${blog.title}</h5>
+              <p class="card-text">${blog.content.substring(0, 100)}...</p>
+              <a href="/blog/${blog._id}" class="btn btn-sm btn-outline-primary">Read More</a>
+            </div>
+          </div>
+        `)
+              .join("");
+          } catch (err) {
+            console.error(err);
+            searchResults.innerHTML = `<p class="text-danger">Error fetching blogs.</p>`;
+          }
+        });
+      });
+    </script>

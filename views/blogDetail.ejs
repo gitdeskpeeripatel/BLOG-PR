@@ -1,0 +1,63 @@
+<%- include("partials/header") %>
+
+<div class="container py-5" style="max-width: 900px;">
+<a href="/home" class="btn btn-outline-dark mb-3">⬅ Back</a>
+
+  <div class="card mb-5 ">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+      <h4 class="mb-0"><%= blog.title %></h4>
+      <form action="/blog/<%= blog._id %>/like" method="POST" class="d-inline">
+        <button class="btn btn-light btn-sm">
+          <% if(userLiked){ %>
+            ❤️ Unlike (<%= likesCount %>)
+          <% } else { %>
+            🤍 Like (<%= likesCount %>)
+          <% } %>
+        </button>
+      </form>
+    </div>
+    <div class="card-body">
+      <% if(blog.image){ %>
+        <img src="<%= blog.image %>" class="img-fluid rounded mb-3" alt="Blog Image">
+      <% } %>
+      <p><%= blog.content %></p>
+      <small class="text-muted">Created at: <%= new Date(blog.createdAt).toLocaleString() %></small>
+    </div>
+  </div>
+
+  <!-- Comments -->
+  <div class="card mb-5">
+    <div class="card-body">
+      <h5>Comments</h5>
+
+      <% if(comments && comments.length > 0){ %>
+        <% comments.forEach(c => { %>
+          <div class="mb-3 border-bottom pb-2">
+            <strong><%= c.user %>:</strong>
+            <p class="mb-1"><%= c.text %></p>
+            <!-- <small class="text-muted"><%= new Date(c.createdAt).toLocaleString() %></small> -->
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p class="text-muted">No comments yet.</p>
+      <% } %>
+
+      <!-- Add Comment Form -->
+      <form action="/blog/<%= blog._id %>/comment" method="POST" class="mt-3">
+        <div class="input-group">
+          <input type="text" name="text" class="form-control" placeholder="Write a comment..." required>
+          <button class="btn btn-primary" type="submit">Post</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+</div>
+
+<style>
+  body{
+    background: #cfe2ff;;
+  }
+</style>
+<%- include("partials/footer") %>

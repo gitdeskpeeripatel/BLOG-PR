@@ -1,0 +1,70 @@
+<%- include('../../partials/header') %>
+ 
+<div class="container d-flex justify-content-center align-items-center mt-5" style="min-height: 100vh; ">
+
+
+  <div class="card border-0 rounded-4 p-5" style="max-width: 600px; width: 100%; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+    
+    <!-- Heading -->
+    <div class="text-center mb-4">
+      <h2 class="fw-bold mb-2 ">Edit Profile</h2>
+      <p class="text-muted">Update your personal information below</p>
+    </div>
+
+    <!-- Form -->
+    <form action="/user/profile/edit" method="POST" enctype="multipart/form-data">
+      
+      <!-- Name -->
+      <div class="form-floating mb-3">
+        <input type="text" name="name" class="form-control rounded-3" 
+               value="<%= user.name %>" required>
+        <label class="fw-semibold">Full Name</label>
+      </div>
+
+      <!-- Email -->
+      <div class="form-floating mb-3">
+        <input type="email" name="email" class="form-control rounded-3" 
+               value="<%= user.email %>" required>
+        <label class="fw-semibold">Email</label>
+      </div>
+
+      <!-- Avatar -->
+      <div class="mb-4 text-center">
+        <label class="form-label fw-semibold d-block mb-2">Profile Picture</label>
+        <% if (user.avatar) { %>
+          <div class="mb-3">
+            <img src="<%= user.avatar %>" alt="Profile Avatar" 
+                 class="rounded-circle border " width="100" height="100">
+          </div>
+        <% } %>
+        <input type="file" name="avatar" class="form-control rounded-3">
+      </div>
+
+      <!-- Buttons -->
+      <div class="d-flex justify-content-between mt-4">
+        <a href="/user/profile" class="btn btn-light border rounded-3 px-4">Cancel</a>
+        <button type="submit" class="btn btn-primary rounded-3 px-4">Update</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<div class="container"> <div class=" text-center mt-5">
+    <a href="/home" class="btn btn-outline-dark px-4 mb-3">← Back</a>
+  </div></div>
+
+<style>
+  body {
+    background: linear-gradient(135deg, #cfe2ff, #e9f0ff);
+  }
+  /* .form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25);
+  } */
+  .btn-primary {
+    background: #0d6efd;
+    border: none;
+  }
+</style>
+
+<%- include('../../partials/footer') %>
