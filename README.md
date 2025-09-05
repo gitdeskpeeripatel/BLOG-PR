@@ -6,7 +6,7 @@ The project is designed with scalability, modularity, and clean folder structure
 
 
 
-## ✨ Highlights
+### ✨ Highlights
 
 - 🖊️ Add, update, and delete blog posts  
 - 🔑 Secure user login & signup  
@@ -19,7 +19,7 @@ The project is designed with scalability, modularity, and clean folder structure
 
 
 
-## 🧰 Technolody
+### 🧰 Technolody
 
 - **Server:** Node.js, Express.js  
 - **Database:** MongoDB with Mongoose  
@@ -29,7 +29,7 @@ The project is designed with scalability, modularity, and clean folder structure
 
 
 
-## 📂 Folder Structure
+### 📂 Folder Structure
 
     BlogProject/
     │── .env.example      # Sample environment file
@@ -44,11 +44,11 @@ The project is designed with scalability, modularity, and clean folder structure
     │── package.json      # Dependencies & scripts
 
 
-## ⚙️ Run the project
+### ⚙️ Run the project
 
     npm start
 
-## 📸 Screenshots
+### 📸 Screenshots
 <img width="1365" height="674" alt="Screenshot 2025-09-05 011146" src="https://github.com/user-attachments/assets/21c5f94a-6843-4339-ad77-917e8f58d549" />
 <img width="1365" height="672" alt="Screenshot 2025-09-05 011116" src="https://github.com/user-attachments/assets/2b4a83f2-f43e-4bf8-8a15-bd8d77bac369" />
 <img width="1349" height="534" alt="Screenshot 2025-09-05 011215" src="https://github.com/user-attachments/assets/6a3c98fa-322a-4ef4-8905-ce1d0e7cf02d" />
@@ -56,7 +56,7 @@ The project is designed with scalability, modularity, and clean folder structure
 <img width="1349" height="667" alt="Screenshot 2025-09-05 011832" src="https://github.com/user-attachments/assets/2336375c-7e3f-4bb0-a68c-5024bb7a3655" />
 
 
-👤 Maintainer
+### 👤 Maintainer
 
 Perry Patel
 
