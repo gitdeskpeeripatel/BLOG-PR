@@ -17,7 +17,7 @@ The project is designed with scalability, modularity, and clean folder structure
 - 📊 Persistent data storage with MongoDB  
 - ⚙️ Middleware for cleaner request handling  
 
----
+
 
 ## 🧰 Technolody
 
@@ -43,11 +43,11 @@ The project is designed with scalability, modularity, and clean folder structure
     │── views/            # EJS templates
     │── package.json      # Dependencies & scripts
 
----
+
 ## ⚙️ Run the project
 
     npm start
----
+
 ## 📸 Screenshots
 <img width="1365" height="674" alt="Screenshot 2025-09-05 011146" src="https://github.com/user-attachments/assets/21c5f94a-6843-4339-ad77-917e8f58d549" />
 <img width="1365" height="672" alt="Screenshot 2025-09-05 011116" src="https://github.com/user-attachments/assets/2b4a83f2-f43e-4bf8-8a15-bd8d77bac369" />
