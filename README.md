@@ -4,7 +4,7 @@ A full-featured **Blog Platform** powered by **Node.js, Express.js, and MongoDB*
 It provides secure authentication, post management, and dynamic UI rendering using **EJS templates**.  
 The project is designed with scalability, modularity, and clean folder structure in mind.
 
----
+
 
 ## ✨ Highlights
 
@@ -27,7 +27,7 @@ The project is designed with scalability, modularity, and clean folder structure
 - **Config:** dotenv  
 - **Additional:** Routers, Controllers, Middlewares  
 
----
+
 
 ## 📂 Folder Structure
 
